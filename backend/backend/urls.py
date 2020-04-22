@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
+
+# https://www.django-rest-framework.org/api-guide/routers/
+
+router = routers.SimpleRouter()
+router.register(r'users', UserViewSet)
+router.register(r'accounts', AccountViewSet)
+
+urls = router.urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^forgot-password/$', ForgotPasswordFormView.as_view())
 ]
+
+urlpatterns += router.urls
