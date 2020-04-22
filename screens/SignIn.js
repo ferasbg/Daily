@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     error: {
         color: colors.errorText,
-        fontsSize: 14,
+        fontSize: 14,
     },
     header: {
         marginBottom: 25,
@@ -121,8 +121,8 @@ class SignIn extends Component {
                             source={logoImage}
                         />
 
-                        <Text style={styles.headerText}> Todoify</Text>
-                        <Text style={styles.subHeaderText}>The Redesigned Task Manager for Your Attention</Text>
+                        <Text style={styles.headerText}> Daily</Text>
+                        <Text style={styles.subHeaderText}>Daily App</Text>
                     </View>
                     
 
@@ -144,7 +144,6 @@ class SignIn extends Component {
                             secureTextEntry
                             borderTop
                         />
-
                     : null}
                 </InputWrapper>
 
