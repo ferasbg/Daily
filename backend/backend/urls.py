@@ -1,3 +1,22 @@
+from django.contrib import admin
+from django.urls import path, url, include
+from rest_framework import viewsets, routers, serializers
+from backend.reader.views import UserViewSet, AccountViewSet
+
+
+# https://www.django-rest-framework.org/api-guide/routers/
+
+router = routers.SimpleRouter()
+router.register(r'users', UserViewSet)
+router.register(r'accounts', AccountViewSet)
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path(r'^', include(router.urls)),
+    url(r'^api/', include((router.urls, 'Daily')))
+]
+
 """backend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,22 +32,3 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-from rest_framework import routers
-
-# https://www.django-rest-framework.org/api-guide/routers/
-
-router = routers.SimpleRouter()
-router.register(r'users', UserViewSet)
-router.register(r'accounts', AccountViewSet)
-
-urls = router.urls
-
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^forgot-password/$', ForgotPasswordFormView.as_view())
-]
-
-urlpatterns += router.urls

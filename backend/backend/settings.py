@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django_counter_field',
     'reader',
     'localusers',
-    'api'
+    'api',
+    'django_model_changes'
 ]
 
 MIDDLEWARE = [
